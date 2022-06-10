@@ -104,13 +104,13 @@ public class GUI implements ActionListener{
 		String time = timeSelector.getSelectedItem().toString();
 		
 		if (patient.length() != 0) {
-			String message1 = ("Good morning, " + patient + " this is " + therapist + " from Second Chance Behavioral Health. This is a reminder for our appointment scheduled for " + dateFormat.format(date) + " at " + time + " . Please reply yes to this message to confirm the appointment or no to reschedule.");
+			String message1 = ("Good morning, " + patient + " this is " + therapist + " from Second Chance Behavioral Health. This is a reminder for our appointment scheduled for " + dateFormat.format(date) + " at " + time + ". Please reply yes to this message to confirm the appointment or no to reschedule.");
 			StringSelection stringSelection = new StringSelection(message1);
 			Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 			clipboard.setContents(stringSelection, null);
 			JOptionPane.showMessageDialog(frame, "Reminder Copied!");
 		} else {
-			String message2 = ("Good morning, this is " + therapist + " from Second Chance Behavioral Health. This is a reminder for our appointment scheduled for " + dateFormat.format(date) + " at " + time + " . Please reply yes to this message to confirm the appointment or no to reschedule.");
+			String message2 = ("Good morning, this is " + therapist + " from Second Chance Behavioral Health. This is a reminder for our appointment scheduled for " + dateFormat.format(date) + " at " + time + ". Please reply yes to this message to confirm the appointment or no to reschedule.");
 			StringSelection stringSelection = new StringSelection(message2);
 			Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 			clipboard.setContents(stringSelection, null);
