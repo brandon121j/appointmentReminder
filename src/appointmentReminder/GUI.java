@@ -35,11 +35,13 @@ public class GUI implements ActionListener{
 	private static JPanel panel;
 	private static JFrame frame;
 	private static JLabel createdBy;
+	private static JTextField link;
+	private static JLabel linkLabel;
 	
 	public static void main(String[] args) {
 		panel = new JPanel();
 		frame = new JFrame("Appointment Reminder");
-		frame.setSize(400, 310);
+		frame.setSize(370, 370);
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().add(panel);
@@ -79,17 +81,23 @@ public class GUI implements ActionListener{
 		timeSelector.setBounds(175, 140, 165, 25);
 		panel.add(timeSelector);
 		
+		link = new JTextField(20);
+		link.setBounds(10, 180, 331, 25);
+		panel.add(link);
+		
+		linkLabel = new JLabel("Session Link");
+		linkLabel.setBounds(140, 210, 240, 25);
+		panel.add(linkLabel);
+		
 		button = new JButton("Generate Reminder");
-		button.setBounds(120, 190, 150, 50);
+		button.setBounds(105, 250, 150, 50);
 		button.addActionListener(new GUI());
 		panel.add(button);
 		button.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		
 		createdBy = new JLabel("Created by: Brandon Johnson");
-		createdBy.setBounds(111, 250, 195, 25);
+		createdBy.setBounds(95, 310, 195, 25);
 		panel.add(createdBy);
-		
-		
 		
 		frame.setVisible(true);
 	}
@@ -102,15 +110,24 @@ public class GUI implements ActionListener{
 		DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
 		Date date = dateChooser.getDate();
 		String time = timeSelector.getSelectedItem().toString();
+		String hyperlink = link.getText();
 		
 		if (patient.length() != 0) {
-			String message1 = ("Good morning, " + patient + " this is " + therapist + " from Second Chance Behavioral Health. This is a reminder for our appointment scheduled for " + dateFormat.format(date) + " at " + time + ". Please reply yes to this message to confirm the appointment or no to reschedule.");
+			String message1 = (
+					"Good morning, " + patient + " this is " + therapist + " from Second Chance Behavioral Health. This is a reminder for our appointment scheduled for " + 
+					dateFormat.format(date) + " at " + time + ". To join the session, click the link below. " + "\r\n" + hyperlink + "\r\n" + "\r\n" + 
+					"Please reply yes to this message to confirm the appointment or no to reschedule."
+			);
 			StringSelection stringSelection = new StringSelection(message1);
 			Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 			clipboard.setContents(stringSelection, null);
 			JOptionPane.showMessageDialog(frame, "Reminder Copied!");
 		} else {
-			String message2 = ("Good morning, this is " + therapist + " from Second Chance Behavioral Health. This is a reminder for our appointment scheduled for " + dateFormat.format(date) + " at " + time + ". Please reply yes to this message to confirm the appointment or no to reschedule.");
+			String message2 = (
+					"Good morning, this is " + therapist + " from Second Chance Behavioral Health. This is a reminder for our appointment scheduled for " + 
+					dateFormat.format(date) + " at " + time + ". To join the session, click the link below. " + "\r\n" + hyperlink + "\r\n" + "\r\n" +
+					"Please reply yes to this message to confirm the appointment or no to reschedule."
+			);
 			StringSelection stringSelection = new StringSelection(message2);
 			Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 			clipboard.setContents(stringSelection, null);
