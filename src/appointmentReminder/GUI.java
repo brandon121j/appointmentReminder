@@ -114,9 +114,9 @@ public class GUI implements ActionListener{
 		
 		if (patient.length() != 0) {
 			String message1 = (
-					"Good morning, " + patient + " this is " + therapist + " from Second Chance Behavioral Health. This is a reminder for our appointment scheduled for " + 
-					dateFormat.format(date) + " at " + time + ". To join the session, click the link below. " + "\r\n" + hyperlink + "\r\n" + "\r\n" + 
-					"Please reply yes to this message to confirm the appointment or no to reschedule."
+				"Good morning, " + patient + " this is " + therapist + " from Second Chance Behavioral Health. This is a reminder for our appointment scheduled for " + 
+				dateFormat.format(date) + " at " + time + ". To join the session, click the link below. " + "\r\n" + hyperlink + "\r\n" + "\r\n" + 
+				"Please reply yes to this message to confirm the appointment or no to reschedule."
 			);
 			StringSelection stringSelection = new StringSelection(message1);
 			Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
@@ -124,9 +124,9 @@ public class GUI implements ActionListener{
 			JOptionPane.showMessageDialog(frame, "Reminder Copied!");
 		} else {
 			String message2 = (
-					"Good morning, this is " + therapist + " from Second Chance Behavioral Health. This is a reminder for our appointment scheduled for " + 
-					dateFormat.format(date) + " at " + time + ". To join the session, click the link below. " + "\r\n" + hyperlink + "\r\n" + "\r\n" +
-					"Please reply yes to this message to confirm the appointment or no to reschedule."
+				"Good morning, this is " + therapist + " from Second Chance Behavioral Health. This is a reminder for our appointment scheduled for " + 
+				dateFormat.format(date) + " at " + time + ". To join the session, click the link below. " + "\r\n" + hyperlink + "\r\n" + "\r\n" +
+				"Please reply yes to this message to confirm the appointment or no to reschedule."
 			);
 			StringSelection stringSelection = new StringSelection(message2);
 			Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
