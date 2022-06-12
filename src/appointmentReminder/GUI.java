@@ -149,7 +149,7 @@ public class GUI implements ActionListener {
 				JOptionPane.showMessageDialog(frame, "Reminder Copied!");
 			}
 		} else {
-			JOptionPane.showMessageDialog(frame, "Please enter a valid Appointment Date", "Error", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(frame, "Please enter a valid Appointment Date!", "Error", JOptionPane.ERROR_MESSAGE);
 		}
 	}
 }
