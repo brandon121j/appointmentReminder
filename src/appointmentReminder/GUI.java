@@ -42,6 +42,7 @@ public class GUI implements ActionListener {
 		panel = new JPanel();
 		frame = new JFrame("Appointment Reminder");
 		frame.setSize(370, 370);
+		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().add(panel);
