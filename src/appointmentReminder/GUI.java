@@ -76,7 +76,10 @@ public class GUI implements ActionListener{
 		appointmentTime.setBounds(10, 140, 125, 25);
 		panel.add(appointmentTime);
 		
-		String[] times = {"12:00 am", "1:00 am", "2:00 am", "3:00 am", "4:00 am", "5:00 am", "6:00 am", "7:00 am", "8:00 am", "9:00 am", "10:00 am", "11:00 am", "12:00 pm", "1:00 pm", "2:00 pm", "3:00 pm", "4:00 pm", "5:00 pm", "6:00 pm", "7:00 pm", "8:00 pm", "9:00 pm", "10:00 pm", "11:00 pm"};
+		String[] times = {
+				"12:00 am", "1:00 am", "2:00 am", "3:00 am", "4:00 am", "5:00 am", "6:00 am", "7:00 am", "8:00 am", "9:00 am", "10:00 am", "11:00 am", "12:00 pm", "1:00 pm", 
+				"2:00 pm", "3:00 pm", "4:00 pm", "5:00 pm", "6:00 pm", "7:00 pm", "8:00 pm", "9:00 pm", "10:00 pm", "11:00 pm"
+				};
 		timeSelector = new JComboBox<>(times);
 		timeSelector.setBounds(175, 140, 165, 25);
 		panel.add(timeSelector);
@@ -99,7 +102,15 @@ public class GUI implements ActionListener{
 		createdBy.setBounds(95, 310, 195, 25);
 		panel.add(createdBy);
 		
+		String[] info = DataReader.dataFetcher(); 
+		if (info.length != 0) {
+			System.out.println("1: " + info[0] + " 2: " + info[1]);
+			therapistText.setText(info[0]);
+			link.setText(info[1]);
+		}
+		
 		frame.setVisible(true);
+		
 	}
 	
 
@@ -118,6 +129,7 @@ public class GUI implements ActionListener{
 				dateFormat.format(date) + " at " + time + ". To join the session, click the link below. " + "\r\n" + hyperlink + "\r\n" + "\r\n" + 
 				"Please reply yes to this message to confirm the appointment or no to reschedule."
 			);
+			Writer.dataSaver(therapist, hyperlink);
 			StringSelection stringSelection = new StringSelection(message1);
 			Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 			clipboard.setContents(stringSelection, null);
@@ -128,6 +140,7 @@ public class GUI implements ActionListener{
 				dateFormat.format(date) + " at " + time + ". To join the session, click the link below. " + "\r\n" + hyperlink + "\r\n" + "\r\n" +
 				"Please reply yes to this message to confirm the appointment or no to reschedule."
 			);
+			Writer.dataSaver(therapist, hyperlink);
 			StringSelection stringSelection = new StringSelection(message2);
 			Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 			clipboard.setContents(stringSelection, null);
